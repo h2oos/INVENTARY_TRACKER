@@ -1,9 +1,8 @@
 'use client'
 import Image from "next/image";
-import {Typography} from '@mui/material'
 import {useState,useEffect} from 'react'
 import {firestore} from '@/firebase'
-import {Box} from '@mui/material'
+import {Box, Modal, Typography} from '@mui/material'
 import{collection, getDocs, query} from 'firebase/firestore'
 
 export default function Home() {
@@ -24,22 +23,50 @@ export default function Home() {
     setInventory(inventoryList)
   }
 
+  const addItem = async (item) =>{
+    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docSnap = await getDocs(docRef)
+    if(docSnap.exists()){
+      const {quantity} = docSnap.data()
+      await setDoc(docRef, {quantity: quantity + 1})
+    }
+    else{
+      await setDoc(docRef, {quantity: 1})
+    }
+    await updateInventory()
+  }
+
+  const removeItem = async (item) =>{
+    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docSnap = await getDocs(docRef)
+    if(docSnap.exists()){
+      const {quantity} = docSnap.data()
+      if (quantity === 1) {
+        await deleteDoc(docRef)
+      }  
+      else{
+        await setDoc(docRef, {quantity: quantity - 1})
+      }
+    }
+    await updateInventory()
+  }
+
   useEffect(()=>{
     updateInventory()
   }, [])
 
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   return (
-    <Box>
+    <Box width="100vw" height="100vh" display="flex" justifyContent="center" alignItems="center" gap={2}
+    >
+      <Modal>
+        open={open}
+        onClose={handleClose}
+      </Modal>
       <Typography variant ="h1">Inventory Management</Typography>
-      {
-        inventory.forEach((item)=>{
-          return (
-            <>
-              {item.name}
-              {item.count}
-           </>
-           )
-        })}     
+       
     </Box>
   )
 }
