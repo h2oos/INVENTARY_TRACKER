@@ -161,7 +161,7 @@ export default function Home() {
                   bgcolor="#fff"
                   padding={2}
                   borderRadius={1}
-                  boxShadow="0 1px 3px rgba(0,0,0,0.1)"
+                  boxShadow="0 1px 2px rgba(0,0,0,0.1)"
                 >
                   <Typography variant="h5" color="#333">
                     {name.charAt(0).toUpperCase() + name.slice(1)}
