@@ -180,7 +180,7 @@ export default function Home() {
                 </Box>
               ))
             ) : (
-              <Typography variant="h6" color="#333" textAlign="center">
+              <Typography variant="h6" color="#555" textAlign="center">
                 No items found
               </Typography>
             )}
