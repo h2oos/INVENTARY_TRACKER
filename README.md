@@ -1,2 +1,2 @@
 Inventary management system where you can search, update, remove inventories.
- inventary-tracker.vercel.app 
+Check it out, https://inventary-tracker.vercel.app/ 
