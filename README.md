@@ -1,4 +1,4 @@
-#This is an inventary management application where you can search, update, remove inventories.
+# This is an inventary management application where you can search, update, remove inventories.
 Technologies Used:
   *Frontend: React and Next.js for building a fast, responsive, and scalable user interface.
   *UI Components: Material UI to ensure a clean, modern, and intuitive design.
