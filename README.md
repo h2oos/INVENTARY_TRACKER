@@ -6,6 +6,6 @@ Technologies Used:
   * Deployment: The application is deployed on Vercel, check it out, https://inventary-tracker.vercel.app/ 
   
 Key Features:
-*Search Functionality: Quickly find specific items using search bar.
-*Add Items: Easily add new items to the inventory with a specified quantity.
-*Remove Items: Remove items from the inventory as needed.
+* Search Functionality: Quickly find specific items using search bar.
+* Add Items: Easily add new items to the inventory with a specified quantity.
+* Remove Items: Remove items from the inventory as needed.
